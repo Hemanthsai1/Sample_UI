@@ -1,0 +1,224 @@
+.pdf-editor {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 20px;
+  border: 1px solid #e0e0e0;
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: #1fbed3;
+  color: white;
+}
+
+.editor-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.close-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg);
+}
+
+.close-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.editor-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 16px 20px;
+  background: #f9f9f9;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.control-group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.control-btn,
+.save-btn,
+.reset-btn {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.control-btn {
+  background: white;
+  color: #333;
+}
+
+.control-btn:hover:not(:disabled) {
+  background: #1fbed3;
+  color: white;
+  border-color: #1fbed3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(31, 190, 211, 0.3);
+}
+
+.control-btn.active {
+  background: #1fbed3;
+  color: white;
+  border-color: #1fbed3;
+}
+
+.control-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.tool-options {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.text-input,
+.font-size-input {
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.text-input:focus,
+.font-size-input:focus {
+  outline: none;
+  border-color: #1fbed3;
+  box-shadow: 0 0 4px rgba(31, 190, 211, 0.3);
+}
+
+.font-size-input {
+  width: 60px;
+  text-align: center;
+}
+
+.save-btn {
+  background: #78e6b2;
+  color: white;
+  border: none;
+  box-shadow: 0 2px 4px rgba(120, 230, 178, 0.3);
+}
+
+.save-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(120, 230, 178, 0.5);
+}
+
+.save-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.reset-btn {
+  background: #e75361;
+  color: white;
+  border: none;
+  box-shadow: 0 2px 4px rgba(231, 83, 97, 0.3);
+}
+
+.reset-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(231, 83, 97, 0.5);
+}
+
+.reset-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.annotations-list {
+  padding: 16px 20px;
+  max-height: 300px;
+  overflow-y: auto;
+  background: #fafafa;
+  border-top: 1px solid #e0e0e0;
+}
+
+.annotations-list h4 {
+  margin: 0 0 12px 0;
+  color: #333;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.annotations-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.annotation-item {
+  padding: 10px 12px;
+  background: white;
+  border-left: 3px solid #1fbed3;
+  border-radius: 4px;
+  font-size: 13px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.ann-type {
+  display: inline-block;
+  padding: 2px 8px;
+  background: #e3f2fd;
+  color: #1976d2;
+  border-radius: 3px;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.ann-page {
+  color: #999;
+  font-size: 12px;
+}
+
+.ann-text {
+  color: #333;
+  font-weight: 500;
+  flex: 1;
+  word-break: break-word;
+}

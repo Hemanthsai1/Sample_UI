@@ -1,0 +1,229 @@
+/* General Reset */
+body {
+  margin: 0;
+font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  color: white;
+  padding: 10px 20px;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+}
+
+.logo-title img {
+  height: 50px;
+  margin-right: 15px;
+}
+
+.nav-title .line {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.home-btn {
+  background: #415a77;
+  color: white;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+.home-btn:hover {
+  background: #1b263b;
+}
+
+/* Upload Form */
+.uploadForm {
+  margin: 30px auto;
+  max-width: 800px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.upload-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.container {
+  flex: 1;
+  min-width: 300px;
+  background: #e0e1dd;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.container h2 {
+  margin-top: 0;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  background: #415a77;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  background: #1b263b;
+}
+
+/* Main Preview Page */
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 20px;
+}
+
+.doc-preview {
+  flex: 2;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.doc-title {
+  margin: 0 0 10px;
+}
+
+iframe {
+  width: 100%;
+  height: 600px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.controls {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#downloads {
+  margin-top: 20px;
+  background: #e0e1dd;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+#downloads h3 {
+  margin-top: 0;
+}
+
+#downloads .btn {
+  display: inline-block;
+  margin: 5px 0;
+  padding: 8px 14px;
+  background: #415a77;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+}
+#downloads .btn:hover {
+  background: #1b263b;
+}
+
+/* Excel Modal */
+#excelModal {
+  display: none; /* hidden by default, toggled with React */
+  position: fixed;
+  z-index: 999;
+  left: 0; 
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+#modalContent {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 1000px;
+  max-height: 90vh;
+  overflow: auto;
+  position: relative;
+}
+
+#sheetsTabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+#sheetsTabs button {
+  flex: none;
+  background: #e0e1dd;
+  color: #000;
+}
+#sheetsTabs button.active-sheet {
+  background: #415a77;
+  color: white;
+}
+
+#sheetContent table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#sheetContent th,
+#sheetContent td {
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+#sheetContent input {
+  width: 100%;
+  border: none;
+  padding: 5px;
+  outline: none;
+}
+
+.button-section {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.bottom-buttons button {
+  width: auto;
+  padding: 10px 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .upload-wrapper {
+    flex-direction: column;
+  }
+
+  .main-container {
+    flex-direction: column;
+  }
+}

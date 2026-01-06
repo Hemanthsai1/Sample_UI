@@ -1,0 +1,64 @@
+# --------------------------------------
+# Default line ending behavior
+# --------------------------------------
+# Always use LF in the repo, regardless of OS
+* text eol=lf
+
+# --------------------------------------
+# Auto-detect binary files (no line ending conversion)
+# --------------------------------------
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.docx binary
+*.xlsx binary
+*.zip binary
+*.tar binary
+*.7z binary
+*.mp4 binary
+*.mov binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+
+# --------------------------------------
+# Code files (explicitly enforce LF)
+# --------------------------------------
+*.js text eol=lf
+*.jsx text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.json text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.scss text eol=lf
+*.md text eol=lf
+*.env text eol=lf
+*.sh text eol=lf
+*.py text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# --------------------------------------
+# Windows-only files (use CRLF)
+# --------------------------------------
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# --------------------------------------
+# Git merge/diff helpers
+# --------------------------------------
+# Treat lock files as text to avoid binary diffs
+package-lock.json text
+yarn.lock text
+pnpm-lock.yaml text
+
+# Ignore line endings in diff for binary files
+*.pdf -diff
+*.docx -diff
+*.xlsx -diff
+*.zip -diff
