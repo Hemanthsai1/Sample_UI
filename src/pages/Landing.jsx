@@ -99,6 +99,11 @@ function Landing() {
               See Samples
               <FaRocket className="btn-icon" />
             </button>
+            <button className="btn-primary" onClick={() => {
+              window.location.href = "https://veritascribe.azurewebsites.net/signup";
+            }}>
+              Sign In
+            </button>
           </div>
           <div className="hero-stats">
             <div className="stat-item">
