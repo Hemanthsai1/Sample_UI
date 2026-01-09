@@ -1,4 +1,4 @@
-# Veritascribe - AI Document Drafting Demo
+# VeritaScribe - AI Document Drafting Demo
 
 A frontend-only interactive demo application for pharmaceutical AI document drafting, designed for public demos and product showcases.
 

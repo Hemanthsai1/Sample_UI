@@ -18,7 +18,7 @@ const TemplateSelection: React.FC = () => {
 
   const handleContinue = () => {
     if (selected) {
-      window.location.href = 'https://veritascribe.azurewebsites.net/login';
+      navigate('/review');
     }
   };
 
@@ -27,7 +27,7 @@ const TemplateSelection: React.FC = () => {
     const colors: Record<string, string> = {
       IND: 'from-blue-500 to-blue-600',
       NDA: 'from-green-500 to-green-600',
-      ANDA: 'from-purple-500 to-purple-600',
+      ANDA: 'from-blue-500 to-blue-600',
       DMF: 'from-orange-500 to-orange-600',
       Photostability: 'from-teal-500 to-teal-600',
     };
@@ -35,7 +35,7 @@ const TemplateSelection: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50">
       {/* Navigation */}
       <nav className="bg-white/80 backdrop-blur-md shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center gap-4">
@@ -48,11 +48,11 @@ const TemplateSelection: React.FC = () => {
           <div className="flex items-center gap-3">
             <img
               src={favicon}
-              alt="Veritascribe"
+              alt="VeritaScribe"
               className="w-8 h-8 object-contain"
             />
             <span className="text-xl font-bold bg-gradient-to-r from-pharma-blue to-pharma-teal bg-clip-text text-transparent">
-              Veritascribe
+            VeritaScribe
             </span>
           </div>
         </div>

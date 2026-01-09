@@ -35,11 +35,11 @@ const DataSourceSimulation: React.FC = () => {
 
   const handleContinue = () => {
     setDataSource(dataSource);
-    navigate('/drafting');
+    navigate('/review');
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50">
       {/* Navigation */}
       <nav className="bg-white/80 backdrop-blur-md shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center gap-4">
@@ -52,7 +52,7 @@ const DataSourceSimulation: React.FC = () => {
           <div className="flex items-center gap-3">
             <FaFileExcel className="text-2xl text-pharma-blue" />
             <span className="text-xl font-bold bg-gradient-to-r from-pharma-blue to-pharma-teal bg-clip-text text-transparent">
-              Veritascribe
+              VeritaScribe
             </span>
           </div>
         </div>
@@ -152,7 +152,7 @@ const DataSourceSimulation: React.FC = () => {
             onClick={handleContinue}
             className="px-8 py-4 bg-gradient-to-r from-pharma-blue to-pharma-teal text-white rounded-xl font-semibold text-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all flex items-center gap-2"
           >
-            Continue to Drafting
+            Continue
             <FaArrowRight />
           </button>
         </div>

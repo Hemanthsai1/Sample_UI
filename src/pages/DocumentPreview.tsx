@@ -2,10 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft, FaSearch, FaEdit, FaHistory, FaFileAlt, FaMagic } from 'react-icons/fa';
 import { useDemo } from '../context/DemoContext';
-import SearchPanel from '../components/SearchPanel';
-import EditReviewPanel from '../components/EditReviewPanel';
-import TrackChangesPanel from '../components/TrackChangesPanel';
-import SummarizationPanel from '../components/SummarizationPanel';
 
 const DocumentPreview: React.FC = () => {
   const navigate = useNavigate();
@@ -60,12 +56,6 @@ const DocumentPreview: React.FC = () => {
     ));
   };
 
-  const panels = [
-    { id: 'search', icon: FaSearch, label: 'Search', component: SearchPanel },
-    { id: 'edit', icon: FaEdit, label: 'Edit & Review', component: EditReviewPanel },
-    { id: 'changes', icon: FaHistory, label: 'Track Changes', component: TrackChangesPanel },
-    { id: 'summarize', icon: FaMagic, label: 'Summarize', component: SummarizationPanel },
-  ];
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -82,7 +72,7 @@ const DocumentPreview: React.FC = () => {
             <div className="flex items-center gap-3">
               <FaFileAlt className="text-2xl text-pharma-blue" />
               <span className="text-xl font-bold bg-gradient-to-r from-pharma-blue to-pharma-teal bg-clip-text text-transparent">
-                Veritascribe
+                VeritaScribe
               </span>
             </div>
           </div>
@@ -112,41 +102,9 @@ const DocumentPreview: React.FC = () => {
             <div className="bg-white rounded-lg shadow-md p-4 mb-4">
               <h3 className="font-bold text-gray-800 mb-4">AI Tools</h3>
               <div className="space-y-2">
-                {panels.map((panel) => {
-                  const Icon = panel.icon;
-                  return (
-                    <button
-                      key={panel.id}
-                      onClick={() => setActivePanel(activePanel === panel.id ? null : panel.id)}
-                      className={`w-full px-4 py-3 rounded-lg font-semibold transition-all flex items-center gap-2 ${
-                        activePanel === panel.id
-                          ? 'bg-gradient-to-r from-pharma-blue to-pharma-teal text-white shadow-lg'
-                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                      }`}
-                    >
-                      <Icon />
-                      {panel.label}
-                    </button>
-                  );
-                })}
               </div>
             </div>
 
-            {/* Active Panel Content */}
-            {activePanel === 'search' && state.filledDocument && (
-              <SearchPanel
-                document={state.filledDocument}
-                onHighlight={handleSearchHighlight}
-              />
-            )}
-
-            {activePanel === 'edit' && <EditReviewPanel />}
-
-            {activePanel === 'changes' && <TrackChangesPanel />}
-
-            {activePanel === 'summarize' && state.filledDocument && (
-              <SummarizationPanel document={state.filledDocument} />
-            )}
           </div>
         </div>
       </div>

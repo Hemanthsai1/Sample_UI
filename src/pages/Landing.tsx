@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
-import { FaRocket, FaFileAlt, FaChartLine, FaShieldAlt, FaClock, FaCheckCircle, FaSearch, FaEdit, FaHistory, FaMagic } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import { FaRocket, FaFileAlt, FaChartLine, FaShieldAlt, FaClock, FaCheckCircle, FaSearch, FaEdit, FaHistory, FaMagic, FaLayerGroup } from 'react-icons/fa';
 
 const Landing: React.FC = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -33,26 +33,36 @@ const Landing: React.FC = () => {
       icon: <FaSearch />,
       title: 'Advanced Search',
       description: 'Search anything in your document with real-time highlighting and match counting. Find specific terms, phrases, or sections instantly.',
+      image: '/Search.png',
     },
     {
       icon: <FaEdit />,
       title: 'Edit & Review',
       description: 'Edit and review anything in your document with live updates. Make changes to fields, tables, and content, then save your changes instantly.',
+      image: '/Edit_review.png',
     },
     {
       icon: <FaHistory />,
       title: 'Track Changes',
       description: 'Track changes option that monitors what is changed in your document. See all modifications with visual diff showing added, removed, and modified content.',
+      image: '/trackchanges.png',
     },
     {
       icon: <FaMagic />,
       title: 'AI Summarization',
       description: 'Summarization using AI for anything in your document. Get intelligent summaries of sections or entire documents with key points extracted automatically.',
+      image: '/summarize.png',
+    },
+    {
+      icon: <FaLayerGroup />,
+      title: 'Customize Section',
+      description: 'Add or remove sections in your document based on your requirements. Dynamically customize document structure by inserting new sections or removing unnecessary ones with ease.',
+      image: '/Edit_review.png', // Using Edit_review as fallback since no customize image
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50">
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md shadow-sm z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
@@ -64,16 +74,10 @@ const Landing: React.FC = () => {
           </div>
           <div className="flex items-center gap-4">
             <button
-              onClick={() => window.location.href = 'https://veritascribe.azurewebsites.net/login'}
-              className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-pharma-blue transition-colors"
-            >
-              Login
-            </button>
-            <button
-              onClick={() => window.location.href = 'https://veritascribe.azurewebsites.net/'}
+              onClick={() => navigate('/demo')}
               className="px-6 py-2 bg-gradient-to-r from-pharma-blue to-pharma-teal text-white rounded-lg font-semibold hover:shadow-lg transition-all transform hover:-translate-y-0.5"
             >
-              Get Started
+              Schedule a Demo
             </button>
           </div>
         </div>
@@ -84,7 +88,7 @@ const Landing: React.FC = () => {
         <div className="max-w-7xl mx-auto text-center">
           <h1 className={`text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             AI-Powered Document Drafting
-            <span className="block bg-gradient-to-r from-pharma-blue via-pharma-teal to-purple-600 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-pharma-blue via-pharma-teal to-blue-600 bg-clip-text text-transparent">
               for Pharma
             </span>
           </h1>
@@ -93,17 +97,10 @@ const Landing: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button
-              onClick={() => window.location.href = 'https://veritascribe.azurewebsites.net/'}
-              className="px-8 py-4 bg-gradient-to-r from-pharma-blue to-pharma-teal text-white rounded-xl font-semibold text-lg hover:shadow-2xl transition-all transform hover:-translate-y-1 flex items-center gap-2"
-            >
-              Get Started
-              <FaRocket />
-            </button>
-            <button
-              onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => navigate('/templates')}
               className="px-8 py-4 bg-white text-pharma-blue border-2 border-pharma-blue rounded-xl font-semibold text-lg hover:bg-pharma-blue hover:text-white transition-all"
             >
-              View Features
+              See Samples
             </button>
           </div>
         </div>
@@ -129,7 +126,7 @@ const Landing: React.FC = () => {
       </section>
 
       {/* Solution Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-purple-50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-blue-50">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">The Solution</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -154,17 +151,25 @@ const Landing: React.FC = () => {
           <p className="text-center text-xl text-gray-600 mb-12">
             Everything you need to streamline your document workflow
           </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {features.map((feature, idx) => (
               <div
                 key={idx}
-                className="bg-white border-2 border-gray-200 rounded-2xl p-6 hover:border-pharma-blue hover:shadow-xl transition-all transform hover:-translate-y-2"
+                className={`bg-white border-2 border-gray-200 rounded-2xl overflow-hidden hover:border-pharma-blue hover:shadow-xl transition-all transform hover:-translate-y-2 ${
+                  idx >= 3 ? 'lg:col-start-2' : ''
+                }`}
               >
-                <div className="w-16 h-16 bg-gradient-to-r from-pharma-blue to-pharma-teal rounded-xl flex items-center justify-center text-white text-2xl mb-4">
-                  {feature.icon}
+                <div className="relative h-48 overflow-hidden bg-gray-100">
+                  <img
+                    src={feature.image}
+                    alt={feature.title}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-gray-800">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-3 text-gray-800">{feature.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -208,12 +213,6 @@ const Landing: React.FC = () => {
         <div className="max-w-4xl mx-auto text-center text-white">
           <h2 className="text-4xl font-bold mb-4">Ready to Transform Your Workflow?</h2>
           <p className="text-xl mb-8 opacity-90">Experience the power of AI-driven document automation</p>
-          <button
-            onClick={() => window.location.href = 'https://veritascribe.azurewebsites.net/'}
-            className="px-10 py-4 bg-white text-pharma-blue rounded-xl font-bold text-lg hover:shadow-2xl transition-all transform hover:-translate-y-1"
-          >
-            Get Started Now
-          </button>
         </div>
       </section>
     </div>

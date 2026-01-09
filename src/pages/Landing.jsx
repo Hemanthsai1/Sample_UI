@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../styles/landing.css";
 // @ts-ignore
 import logo from "../assets/favicon.png";
-import { FaRocket, FaFileAlt, FaChartLine, FaShieldAlt, FaSync, FaMagic, FaSearch, FaEdit, FaHistory } from "react-icons/fa";
+import { FaRocket, FaFileAlt, FaChartLine, FaShieldAlt, FaSync, FaMagic, FaSearch, FaEdit, FaHistory, FaLayerGroup, FaDatabase } from "react-icons/fa";
 
 function Landing() {
   const navigate = useNavigate();
@@ -21,22 +21,38 @@ function Landing() {
     {
       icon: <FaSearch />,
       title: "Advanced Search",
-      description: "Search anything in your document with real-time highlighting and match counting. Find specific terms, phrases, or sections instantly."
+      description: "Search anything in your document with real-time highlighting and match counting. Find specific terms, phrases, or sections instantly.",
+      image: "/Search.png"
     },
     {
       icon: <FaEdit />,
       title: "Edit & Review",
-      description: "Edit and review anything in your document with live updates. Make changes to fields, tables, and content, then save your changes instantly."
+      description: "Edit and review anything in your document with live updates. Make changes to fields, tables, and content, then save your changes instantly.",
+      image: "/Edit_review.png"
     },
     {
       icon: <FaHistory />,
       title: "Track Changes",
-      description: "Track changes option that monitors what is changed in your document. See all modifications with visual diff showing added, removed, and modified content."
+      description: "Track changes option that monitors what is changed in your document. See all modifications with visual diff showing added, removed, and modified content.",
+      image: "/trackchanges.png"
     },
     {
       icon: <FaMagic />,
       title: "AI Summarization",
-      description: "Summarization using AI for anything in your document. Get intelligent summaries of sections or entire documents with key points extracted automatically."
+      description: "Summarization using AI for anything in your document. Get intelligent summaries of sections or entire documents with key points extracted automatically.",
+      image: "/summarize.png"
+    },
+    {
+      icon: <FaLayerGroup />,
+      title: "Customize Section",
+      description: "Add or remove sections in your document based on your requirements. Dynamically customize document structure by inserting new sections or removing unnecessary ones with ease.",
+      image: "/Customize_Section.png"
+    },
+    {
+      icon: <FaDatabase />,
+      title: "Multi-input Template Processing",
+      description: "Process a single template with multiple data sources to efficiently fill your document. Combine data from various sources into one comprehensive document, streamlining your workflow and reducing manual data entry.",
+      image: "/Multi-input Template processing.png"
     }
   ];
 
@@ -46,24 +62,18 @@ function Landing() {
       <nav className="landing-nav">
         <div className="nav-container">
           <div className="nav-logo">
-            <img src={logo} alt="Veritascribe Logo" />
-            <span className="logo-text">Veritascribe</span>
+            <img src={logo} alt="VeritaScribe Logo" />
+            <span className="logo-text">VeritaScribe</span>
           </div>
           <div className="nav-links">
             <a href="#features">Features</a>
             <a href="#how-it-works">How It Works</a>
-            {/* <button className="nav-login-btn" onClick={() => navigate("/login")}>
-              Login
-            </button> */}
             <button
               className="nav-get-started-btn"
-              onClick={() => {
-                window.location.href = "https://veritascribe.azurewebsites.net/login";
-              }}
+              onClick={() => navigate("/demo")}
             >
-              Get Started
+              Schedule a Demo
             </button>
-
           </div>
         </div>
       </nav>
@@ -89,9 +99,6 @@ function Landing() {
               See Samples
               <FaRocket className="btn-icon" />
             </button>
-            <button className="btn-primary" onClick={() => navigate("/login")}>
-              Sign In
-            </button>
           </div>
           <div className="hero-stats">
             <div className="stat-item">
@@ -111,6 +118,51 @@ function Landing() {
      
       </section>
 
+      {/* Regulatory & Productivity Benefits Section */}
+      <section className="benefits-section">
+        <div className="section-container">
+          <h2 className="section-title">Regulatory & Productivity Benefits</h2>
+          <div className="benefits-grid">
+            <div className="benefit-card">
+              <div className="benefit-icon">
+                <FaRocket />
+              </div>
+              <h3 className="benefit-title">Productivity & Speed</h3>
+              <p className="benefit-description">
+                Save hours of manual work as AI completes document tasks in minutes, accelerating reviews, approvals, and overall workflows.
+              </p>
+            </div>
+            <div className="benefit-card">
+              <div className="benefit-icon">
+                <FaShieldAlt />
+              </div>
+              <h3 className="benefit-title">Accuracy & Compliance</h3>
+              <p className="benefit-description">
+                Eliminate human errors with reliable, compliant, and consistent documentation you can trust.
+              </p>
+            </div>
+            <div className="benefit-card">
+              <div className="benefit-icon">
+                <FaMagic />
+              </div>
+              <h3 className="benefit-title">Instant Understanding</h3>
+              <p className="benefit-description">
+                Quickly grasp long and complex documents through AI-powered summaries and insights in seconds.
+              </p>
+            </div>
+            <div className="benefit-card">
+              <div className="benefit-icon">
+                <FaLayerGroup />
+              </div>
+              <h3 className="benefit-title">Smart Document Customization & Collaboration</h3>
+              <p className="benefit-description">
+                Easily update default documents for different products, enable smooth team collaboration, and focus on high-value tasks like scientific review and analysis.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section id="features" className="features-section">
         <div className="section-container">
@@ -125,7 +177,19 @@ function Landing() {
                 className="feature-card"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="feature-icon">{feature.icon}</div>
+                <div className="feature-image-container">
+                  <img
+                    src={feature.image}
+                    alt={feature.title}
+                    className="feature-image"
+                    loading="eager"
+                    decoding="async"
+                    onError={(e) => {
+                      console.error(`Failed to load image: ${feature.image}`);
+                      e.target.style.display = 'none';
+                    }}
+                  />
+                </div>
                 <h3 className="feature-title">{feature.title}</h3>
                 <p className="feature-description">{feature.description}</p>
               </div>
@@ -134,6 +198,7 @@ function Landing() {
         </div>
       </section>
 
+  
       {/* How It Works Section */}
       <section id="how-it-works" className="how-it-works-section">
         <div className="section-container">
@@ -181,18 +246,6 @@ function Landing() {
           <p className="cta-subtitle">
             Join thousands of professionals who trust Veritascribe for their document needs
           </p>
-          <center>
-            <button
-              className="btn-primary btn-large"
-              onClick={() => {
-                window.location.href = "https://veritascribe.azurewebsites.net/login";
-              }}
-            >
-              Get Started Now
-              <FaRocket className="btn-icon" />
-            </button>
-          </center>
-
         </div>
       </section>
 
@@ -201,12 +254,11 @@ function Landing() {
         <div className="footer-content">
           <div className="footer-logo">
             <img src={logo} alt="Veritascribe Logo" />
-            <span>Veritascribe</span>
+            <span>VeritaScribe</span>
           </div>
           <div className="footer-links">
             <a href="#features">Features</a>
             <a href="#how-it-works">How It Works</a>
-            <a href="https://veritascribe.azurewebsites.net/login">Login</a>
           </div>
           <div className="footer-copyright">
             © 2026 Veritascribe. All rights reserved.
