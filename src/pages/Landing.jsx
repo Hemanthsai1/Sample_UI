@@ -3,6 +3,10 @@ import { useNavigate } from "react-router-dom";
 import "../styles/landing.css";
 // @ts-ignore
 import logo from "../assets/favicon.png";
+// @ts-ignore
+import imagePng from "../assets/image.png";
+// @ts-ignore
+import vScImage from "../assets/V_SC.png";
 import { FaRocket, FaFileAlt, FaChartLine, FaShieldAlt, FaSync, FaMagic, FaSearch, FaEdit, FaHistory, FaLayerGroup, FaDatabase } from "react-icons/fa";
 
 function Landing() {
@@ -62,8 +66,7 @@ function Landing() {
       <nav className="landing-nav">
         <div className="nav-container">
           <div className="nav-logo">
-            <img src={logo} alt="VeritaScribe Logo" />
-            <span className="logo-text">VeritaScribe</span>
+            <img src={imagePng} alt="Home Logo" />
           </div>
           <div className="nav-links">
             <a href="#features">Features</a>
@@ -81,11 +84,13 @@ function Landing() {
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-background">
-          <div className="gradient-orb orb-1"></div>
-          <div className="gradient-orb orb-2"></div>
-          <div className="gradient-orb orb-3"></div>
+          <img src={vScImage} alt="Background" className="hero-background-image" />
         </div>
         <div className={`hero-content ${isVisible ? "fade-in" : ""}`}>
+          <div className="hero-logo-brand">
+            <img src={logo} alt="VeritaScribe Logo" className="hero-brand-logo" />
+            <span className="hero-brand-text">VeritaScribe</span>
+          </div>
           <h1 className="hero-title">
             Transform Your
             <span className="gradient-text"> Document Workflow</span>
@@ -253,7 +258,7 @@ function Landing() {
       <footer className="landing-footer">
         <div className="footer-content">
           <div className="footer-logo">
-            <img src={logo} alt="Veritascribe Logo" />
+            <img src={imagePng} alt="Home Logo" />
             <span>VeritaScribe</span>
           </div>
           <div className="footer-links">
