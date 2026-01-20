@@ -88,7 +88,6 @@ function Landing() {
         </div>
         <div className={`hero-content ${isVisible ? "fade-in" : ""}`}>
           <div className="hero-logo-brand">
-            <img src={logo} alt="VeritaScribe Logo" className="hero-brand-logo" />
             <span className="hero-brand-text">VeritaScribe</span>
           </div>
           <h1 className="hero-title">
